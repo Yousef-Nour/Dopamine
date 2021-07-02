@@ -41,6 +41,22 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
     
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    		name = "donations",
+    		joinColumns = @JoinColumn(name = "donor_id"),
+    		inverseJoinColumns = @JoinColumn(name = "organization_id")
+    		)
+    private List<User> organizations;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    		name = "donations",
+    		joinColumns = @JoinColumn(name = "organization_id"),
+    		inverseJoinColumns = @JoinColumn(name = "donor_id")
+    		)
+    private List<User> donors;
+    
     public User() {
     }
     public Long getId() {
@@ -85,8 +101,19 @@ public class User {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-    
-    @PrePersist
+    public List<User> getOrganizations() {
+		return organizations;
+	}
+	public void setOrganizations(List<User> organizations) {
+		this.organizations = organizations;
+	}
+	public List<User> getDonors() {
+		return donors;
+	}
+	public void setDonors(List<User> donors) {
+		this.donors = donors;
+	}
+	@PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
     }
