@@ -22,7 +22,7 @@ public class Users {
 	private UserService userService;
 	private UserValidator userValidator;
 
-	public Users(UserService userService) {
+	public Users(UserService userService, UserValidator userValidator) {
 		this.userService = userService;
 		this.userValidator = userValidator;
 	}
