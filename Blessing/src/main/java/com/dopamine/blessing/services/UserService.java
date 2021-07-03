@@ -21,10 +21,11 @@ public class UserService {
     
     
     // 1
-    public void saveWithUserRole(User user) {
+    public User saveWithUserRole(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(roleRepository.findByName("ROLE_USER"));
-        userRepository.save(user);
+        user.setRoles(roleRepository.findByName("ROLE_DONOR"));
+        System.out.println(roleRepository.findByName("ROLE_DONOR"));
+        return userRepository.save(user);
     }
      
      // 2 
@@ -34,7 +35,14 @@ public class UserService {
         userRepository.save(user);
     }    
     
-    // 3
+    //3
+    public void saveUserWithOrganizationRole(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles(roleRepository.findByName("ROLE_ORGANIZATION"));
+        userRepository.save(user);
+    }   
+    
+    // 4
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }

@@ -9,6 +9,7 @@ import com.dopamine.blessing.models.Role;
 
 @Repository
 public interface RoleRepository extends CrudRepository <Role, Long>{
+	
     List<Role> findAll();
     
     List<Role> findByName(String name);

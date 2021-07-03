@@ -2,7 +2,6 @@ package com.dopamine.blessing.controllers;
 
 import java.security.Principal;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -40,7 +39,8 @@ public class Users {
 			return "registrationPage.jsp";
 		}
 
-		userService.saveWithUserRole(user);
+		User currentUser = userService.saveWithUserRole(user);
+		model.addAttribute("currentUser",currentUser);
 		return "redirect:/login";
 	}
 
