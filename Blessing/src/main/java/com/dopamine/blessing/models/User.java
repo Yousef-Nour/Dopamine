@@ -169,5 +169,5 @@ public class User {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
-    
 }
+    
