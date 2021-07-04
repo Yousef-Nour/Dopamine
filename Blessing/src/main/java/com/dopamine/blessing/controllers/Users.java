@@ -38,7 +38,8 @@ public class Users {
 		if (result.hasErrors()) {
 			return "registrationPage.jsp";
 		}
-
+//		userService.saveUserWithAdminRole(user);
+//
 		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
 		return "redirect:/login";
