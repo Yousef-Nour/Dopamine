@@ -42,10 +42,10 @@ public class Users {
 			model.addAttribute("cities",City.Cities);
 			return "loginRegistration.jsp";
 		}
-//		userService.saveUserWithAdminRole(user);
+		userService.saveUserWithAdminRole(user);
 
-		User currentUser = userService.saveWithUserRole(user);
-		model.addAttribute("currentUser",currentUser);
+//		User currentUser = userService.saveWithUserRole(user);
+//		model.addAttribute("currentUser",currentUser);
 		return "homePage.jsp";
 	}
 
@@ -73,16 +73,17 @@ public class Users {
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Principal principal, Model model) {
 		String username = principal.getName();
+		Long id = (long) 3;
 		model.addAttribute("currentUser", userService.findByUsername(username));
-		model.addAttribute("allOrg",userService.findAllOrg());
-		System.out.println(userService.findAllOrg().get(0));
+		model.addAttribute("allOrg",userService.findAllOrg(id));
+//		System.out.println(userService.findAllOrg().get(0));
 		return "homePage.jsp";
 	}
 	//logOUT
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/"; 
+        return "redirect:/registration"; 
     }
 	//create organaization from admin
 	@RequestMapping("/createOrgenization")
@@ -102,7 +103,7 @@ public class Users {
 //		userService.saveUserWithAdminRole(user);
 //
 		userService.saveUserWithOrganizationRole(organization);
-		return "homePage.jsp";
+		return "redirect:/";
 	}
 
 }

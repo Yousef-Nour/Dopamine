@@ -50,11 +50,17 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
     
-    public List<User> findAllOrg(){
-    	String id = "3";
-    	Long t = Long.parseLong(id);
-    	Role role = roleRepository.findById(t).orElse(null);
-    	return userRepository.findByRolesContaining(role);
+//    public List<User> findAllOrg(){
+//    	String id = "3";
+//    	Long t = Long.parseLong(id);
+//    	Role role = roleRepository.findById(t).orElse(null);
+//    	return userRepository.findByRolesContaining(role);
+//    }
+    
+    public List<User> findAllOrg(Long id){
+    	return userRepository.findByRolesId(id);
     }
+    
+    
 
 }
