@@ -94,13 +94,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getPasswordConfirmation() {
-        return passwordConfirmation;
-    }
-    public void setPasswordConfirmation(String passwordConfirmation) {
-        this.passwordConfirmation = passwordConfirmation;
-    }
-    public Date getCreatedAt() {
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
+	}
+	public void setPasswordConfirmation(String passwordConfirmation) {
+		this.passwordConfirmation = passwordConfirmation;
+	}
+	public Date getCreatedAt() {
         return createdAt;
     }
     public void setCreatedAt(Date createdAt) {
