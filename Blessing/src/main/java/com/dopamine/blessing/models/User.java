@@ -40,7 +40,7 @@ public class User {
     @Pattern(regexp="(^$|[0-9]{10})")
     private String phone;
     private String City;
-    @Column(nullable = true, length = 64)
+    @Column(nullable = true)
     private String Img;
     private String Description;
     @NotNull
@@ -95,13 +95,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getPasswordConfirmation() {
-        return passwordConfirmation;
-    }
-    public void setPasswordConfirmation(String passwordConfirmation) {
-        this.passwordConfirmation = passwordConfirmation;
-    }
-    public Date getCreatedAt() {
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
+	}
+	public void setPasswordConfirmation(String passwordConfirmation) {
+		this.passwordConfirmation = passwordConfirmation;
+	}
+	public Date getCreatedAt() {
         return createdAt;
     }
     public void setCreatedAt(Date createdAt) {

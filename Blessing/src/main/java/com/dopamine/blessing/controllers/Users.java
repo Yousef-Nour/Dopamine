@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dopamine.blessing.models.City;
 import com.dopamine.blessing.models.User;
 import com.dopamine.blessing.services.UserService;
 import com.dopamine.blessing.validator.UserValidator;
@@ -27,8 +28,9 @@ public class Users {
 	}
 
 	@RequestMapping("/registration")
-	public String registerForm(@Valid @ModelAttribute("user") User user) {
-		return "registrationPage.jsp";
+	public String registerForm(@Valid @ModelAttribute("user") User user, Model model) {
+		model.addAttribute("cities",City.Cities);	
+		return "loginRegistration.jsp";
 	}
 
 	@PostMapping("/registration")
@@ -36,13 +38,14 @@ public class Users {
 		// NEW
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
-			return "registrationPage.jsp";
+			model.addAttribute("cities",City.Cities);
+			return "loginRegistration.jsp";
 		}
 //		userService.saveUserWithAdminRole(user);
 //
 		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
-		return "redirect:/login";
+		return "homePage.jsp";
 	}
 
 	@RequestMapping("/admin")
@@ -54,14 +57,16 @@ public class Users {
 
 	@RequestMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout, Model model) {
+			@RequestParam(value = "logout", required = false) String logout, Model model,@ModelAttribute("user") User user) {
 		if (error != null) {
+			model.addAttribute("cities",City.Cities);
 			model.addAttribute("errorMessage", "Invalid Credentials, Please try again.");
 		}
 		if (logout != null) {
+			model.addAttribute("cities",City.Cities);
 			model.addAttribute("logoutMessage", "Logout Successful!");
 		}
-		return "loginPage.jsp";
+		return "loginRegistration.jsp";
 	}
 
 	@RequestMapping(value = { "/", "/home" })
