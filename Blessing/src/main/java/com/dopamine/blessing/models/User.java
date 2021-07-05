@@ -40,7 +40,6 @@ public class User {
     @Pattern(regexp="(^$|[0-9]{10})")
     private String phone;
     private String City;
-    @Column(nullable = true, length = 64)
     private String Img;
     private String Description;
     @NotNull

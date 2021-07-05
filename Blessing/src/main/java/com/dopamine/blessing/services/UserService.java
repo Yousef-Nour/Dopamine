@@ -1,8 +1,11 @@
 package com.dopamine.blessing.services;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.dopamine.blessing.models.Role;
 import com.dopamine.blessing.models.User;
 import com.dopamine.blessing.repositories.RoleRepository;
 import com.dopamine.blessing.repositories.UserRepository;
@@ -45,6 +48,13 @@ public class UserService {
     // 4
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+    
+    public List<User> findAllOrg(){
+    	String id = "3";
+    	Long t = Long.parseLong(id);
+    	Role role = roleRepository.findById(t).orElse(null);
+    	return userRepository.findByRolesContaining(role);
     }
 
 }
