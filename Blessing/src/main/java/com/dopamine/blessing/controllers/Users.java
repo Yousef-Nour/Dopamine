@@ -38,7 +38,7 @@ public class Users {
 	}
 
 	@PostMapping("/registration")
-	public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+	public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,HttpSession session) {
 		// NEW
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
@@ -46,10 +46,11 @@ public class Users {
 			return "loginRegistration.jsp";
 		}
 //		userService.saveUserWithAdminRole(user);
-
 		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
-		return "homePage.jsp";
+		model.addAttribute("donationTypes",userService.findAllDonationTypes());
+		session.setAttribute("userId", currentUser.getId());
+		return "redirect:/";
 	}
 
 	@RequestMapping("/admin")
@@ -61,7 +62,7 @@ public class Users {
 
 	@RequestMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout, Model model,@ModelAttribute("user") User user) {
+			@RequestParam(value = "logout", required = false) String logout, Model model,@ModelAttribute("user") User user,HttpSession session) {
 		if (error != null) {
 			model.addAttribute("cities",City.Cities);
 			model.addAttribute("errorMessage", "Invalid Credentials, Please try again.");
@@ -70,24 +71,25 @@ public class Users {
 			model.addAttribute("cities",City.Cities);
 			model.addAttribute("logoutMessage", "Logout Successful!");
 		}
+		session.setAttribute("userId", user.getId());
 		return "loginRegistration.jsp";
+
 	}
 
 	@RequestMapping(value = { "/", "/home" })
-	public String home(Principal principal, Model model) {
+	public String home(Principal principal, Model model,@ModelAttribute("donation") Donations donation,HttpSession session) {
 		String username = principal.getName();
-		System.out.println(username + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-		
+		Long id = (long) 3;
 		model.addAttribute("currentUser", userService.findByUsername(username));
-		model.addAttribute("allOrg",userService.findAllOrg());
-		//System.out.println(userService.findAllOrg().get(0));
+		model.addAttribute("allOrg",userService.findAllOrg(id));
+		model.addAttribute("donationTypes",userService.findAllDonationTypes());
 		return "homePage.jsp";
 	}
 	//logOUT
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/"; 
+        return "redirect:/registration"; 
     }
 	//create organaization from admin
 	@RequestMapping("/createOrgenization")
@@ -107,6 +109,16 @@ public class Users {
 //		userService.saveUserWithAdminRole(user);
 //
 		userService.saveUserWithOrganizationRole(organization);
+		return "redirect:/";
+	}
+	
+	@PostMapping("/donate")
+	public String Donate(@Valid @ModelAttribute("donation") Donations donation, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			System.out.println(result.toString());
+			return "homePage.jsp";
+		}
+		userService.createDonation(donation);
 		return "homePage.jsp";
 	}
 	

@@ -11,5 +11,5 @@ import com.dopamine.blessing.models.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
-    List<User> findByRolesContaining(Role role);
+    List<User> findByRolesId(Long roleid);
 }

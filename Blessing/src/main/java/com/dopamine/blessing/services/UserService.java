@@ -3,12 +3,15 @@ package com.dopamine.blessing.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.dopamine.blessing.models.DonationType;
 import com.dopamine.blessing.models.Donations;
-import com.dopamine.blessing.models.Role;
 import com.dopamine.blessing.models.User;
+import com.dopamine.blessing.repositories.DonationTypeRepository;
 import com.dopamine.blessing.repositories.DonationsRepository;
 import com.dopamine.blessing.repositories.RoleRepository;
 import com.dopamine.blessing.repositories.UserRepository;
@@ -17,15 +20,16 @@ import com.dopamine.blessing.repositories.UserRepository;
 public class UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
+    private DonationTypeRepository donTypeRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private DonationsRepository donationRepo;
+    private DonationsRepository donationsRepository;
     
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, DonationsRepository donationRepo)     {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder,DonationTypeRepository donTypeRepository
+    		,DonationsRepository donationsRepository)     {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.donationRepo =donationRepo;
-        
+        this.donTypeRepository = donTypeRepository;
     }
     
     
@@ -56,13 +60,20 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
     
-    public List<User> findAllOrg(){
-    	String id = "3";
-    	Long t = Long.parseLong(id);
-    	Role role = roleRepository.findById(t).orElse(null);
-    	return userRepository.findByRolesContaining(role);
+//    public List<User> findAllOrg(){
+//    	String id = "3";
+//    	Long t = Long.parseLong(id);
+//    	Role role = roleRepository.findById(t).orElse(null);
+//    	return userRepository.findByRolesContaining(role);
+//    }
+    
+    public List<User> findAllOrg(Long id){
+    	return userRepository.findByRolesId(id);
     }
-
+    
+    public List<DonationType> findAllDonationTypes(){
+    	return donTypeRepository.findAll();
+    }
 
 
     public User findByid(Long id) {
@@ -77,14 +88,12 @@ public class UserService {
 //    	String id = "3";
 //    	Long t = Long.parseLong(id);
 //    	Role role = roleRepository.findById(t).orElse(null);
-    	return donationRepo.findAll();
+    	return donationsRepository.findAll();
     }
-
-
+    
+	public Donations createDonation(@Valid Donations donation) {
+		return donationsRepository.save(donation);
 	}
 
+}
 
-
-
-
-	
