@@ -1392,7 +1392,7 @@ img.mfp-img {
 	.faq-block {
 					margin: 0;
 	}
-=======
+
 body {
 	color:#444;
 	font:normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -2659,5 +2659,4 @@ img.mfp-img {
 	.faq-block {
 					margin: 0;
 	}
->>>>>>> cd660bff75b5fc864322e2096b6a734bb52592c9
-}
+}}
