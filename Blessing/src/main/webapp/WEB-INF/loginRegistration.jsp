@@ -19,7 +19,7 @@
         <div class="col_md_login">
           <div class="cont_ba_opcitiy">
             <h2>LOGIN</h2>
-            <p>Previous donor, please Log in!</p>
+            <p>Previous donor!</p>
             <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
           </div>
         </div>
@@ -27,7 +27,7 @@
           <div class="cont_ba_opcitiy">
             <h2>SIGN UP</h2>
 
-            <p>New donor, please Register!</p>
+            <p>New donor!</p>
 
             <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
           </div>

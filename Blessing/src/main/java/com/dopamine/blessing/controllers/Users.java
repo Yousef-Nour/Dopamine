@@ -50,7 +50,7 @@ public class Users {
 		model.addAttribute("currentUser",currentUser);
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
 		session.setAttribute("userId", currentUser.getId());
-		return "redirect:/";
+		return "redirect:/home";
 	}
 
 	@RequestMapping("/admin")
@@ -61,8 +61,9 @@ public class Users {
 	}
 
 	@RequestMapping("/login")
-	public String login(@RequestParam(value = "error", required = false) String error,
+	public String login(Principal principal,@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model,@ModelAttribute("user") User user,HttpSession session) {
+		model.addAttribute("cities",City.Cities);
 		if (error != null) {
 			model.addAttribute("cities",City.Cities);
 			model.addAttribute("errorMessage", "Invalid Credentials, Please try again.");
@@ -79,6 +80,10 @@ public class Users {
 	@RequestMapping(value = {"/","/home"})
 	public String home(Principal principal, Model model,@ModelAttribute("donation") Donations donation,HttpSession session) {
 		String username = principal.getName();
+		User current = userService.findByUsername(username);
+		if(current.getRoles().get(0).getName().equals("ROLE_ORGANIZATION")) {
+			return "redirect:/list";
+		}
 		Long id = (long) 3;
 		model.addAttribute("currentUserId", userService.findByUsername(username).getId());
 		model.addAttribute("allOrg",userService.findAllOrg(id));
@@ -89,7 +94,7 @@ public class Users {
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/registration"; 
+        return "redirect:/login"; 
     }
 	@RequestMapping("/createOrgenization")
 	public String adminPage(@Valid @ModelAttribute("organization") User organization,Model model) {
@@ -119,7 +124,7 @@ public class Users {
 			return "homePage.jsp";
 		}
 		userService.createDonation(donation);
-		return "redirect:/";
+		return "thankYou.jsp";
 	}
 	
 	

@@ -26,7 +26,7 @@
 </head>
 <body>
 	<section class="parallax section"
-		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/3.jpg);">
+		style="background-image: url(https://images.unsplash.com/photo-1590833558296-2640a107a808?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fGhvcGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
 		<div class="wrapsection">
 			<div class="parallax-overlay"></div>
 			<div class="container">
@@ -35,6 +35,8 @@
 						<div class="maintitle">
 							<h3 class="section-title justtitle">Donations List </h3>
 							<p class="lead bottom0 wow bounceInUp">Please select the suitable donations from the table below.</p>
+							<p><a class="btn btn-danger" href="/logout">LogOut</a></p>
+							<br>
 						</div>	
 						<div>
 						<table class="white table table-bordered">
