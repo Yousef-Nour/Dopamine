@@ -100,7 +100,7 @@
 	<!-- About
 	================================================== -->
 	<section id="about" class="parallax section"
-		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/1.jpg);">
+	>
 		<div class="wrapsection">
 			<div class="parallax-overlay"
 				style="background-color: #01b0d1; opacity: 0.9;"></div>
@@ -110,34 +110,33 @@
 						<!-- Title -->
 						<div class="maintitle">
 							<h3 class="section-title">
-								<strong>FIND <span class="lighter">CAUSE</span></strong> to
-								support on your run
+								<strong>About <span class="lighter">Us</span></strong> 
 							</h3>
-							<p class="lead">Mentum lectus id turpis suscipit, ut egestas
-								magna volutpat. Donec a purus tellus. Nunc ut dolor eu est
-								gravida auctor quis vitae sapien.</p>
+							<p class="lead">Blessing is a website for the community. It allows people to help those among us who are less fortunate by connecting users with charity.
+Through our website people will be able to donate tangibles like food, clothes and other stuff. Also they will be able to see the list of charitable organizations in the country.
+As for the charities they will be able to view list of donations in their city and accept donations.
+</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="service-box wow zoomIn" data-wow-duration="1.5s"
 							data-wow-delay="0.1s">
 							<img
-								src="http://themepush.com/demo/runcharity/assets/img/dummy.jpg"
-								alt="">
+								src="https://images.unsplash.com/photo-1505455184862-554165e5f6ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" 
+								alt=""> <!--about our donations-->
+								
 							<h3>
-								August 7, 2015 <br />Square Garden
+								July 1, 2021 <br />BleSSinG<br /> AXSOS Academy
 							</h3>
 							<div class="text-left">
-								<p>I will place all the necessary content for this event
-									here, including where they can register, join, attend &amp; so
-									on.</p>
-								<p>If not enough room, I will link to learn more, a new
-									event page dedicated.</p>
-								<p>Yap. Really looking goody awesome!</p>
+								<p><strong>No-one has ever become poor by Giving</strong></p>
+								<p><i>Alms (is) for the purity of your soul, and flourishment and expansion of your sustenence.</i></p>
+								<p><i>Yap, it is all about humanity!</i></p>
 								<p class="text-center">
 									<button type="button" class="btn btn-info btn-md">
-										<a href="#">Learn More</a>
+										<a href="https://www.youtube.com/watch?v=pb7_YJp9bVA" target="_blank">Learn More</a>
 									</button>
+									
 								</p>
 							</div>
 						</div>
@@ -146,23 +145,22 @@
 						<div class="service-box wow flipInY" data-wow-duration="1.5s"
 							data-wow-delay="0.1s">
 							<span class="glyphicon glyphicon-stats"></span>
-							<h3>1.386 Participants</h3>
-							<p>Nullam posuere, libero id interdum hendrerit, tortor nisl
-								consectetur elit.</p>
+							<h3> 100 Participants</h3>
+							<p>40% of societies in Palestine are charitable
+							</p>
 							<button type="button" class="btn btn-info btn-md">
-								<a href="#">Learn More</a>
+								
 							</button>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="service-box wow flipInY" data-wow-duration="1.5s"
 							data-wow-delay="0.2s">
-							<span class="glyphicon glyphicon-tree-deciduous"></span>
-							<h3>195 Concerts</h3>
-							<p>Nullam posuere, libero id interdum hendrerit, tortor nisl
-								consectetur elit.</p>
+							<span class="glyphicon glyphicon-home"></span>
+							<h3>Orphanages</h3>
+							<p>There are 18 orphanages in Palestine</p>
 							<button type="button" class="btn btn-info btn-md">
-								<a href="#">Learn More</a>
+								
 							</button>
 						</div>
 					</div>
@@ -170,23 +168,21 @@
 						<div class="service-box wow flipInY" data-wow-duration="1.5s"
 							data-wow-delay="0.3s">
 							<span class="glyphicon glyphicon-heart"></span>
-							<h3>268 Sponsors</h3>
-							<p>Nullam posuere, libero id interdum hendrerit, tortor nisl
-								consectetur elit.</p>
+							<h3>Donors</h3>
+							<p>We are blessed with more-than 200 participant in our platform</p>
 							<button type="button" class="btn btn-info btn-md">
-								<a href="#">Learn More</a>
+								
 							</button>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="service-box wow flipInY" data-wow-duration="1.5s"
 							data-wow-delay="0.4s">
-							<span class="glyphicon glyphicon-usd"></span>
-							<h3>$5.647 Donated</h3>
-							<p>Nullam posuere, libero id interdum hendrerit, tortor nisl
-								consectetur elit.</p>
+							<span class="glyphicon glyphicon-user"></span>
+							<h3>Families</h3>
+							<p>More-than 250 families supported through our platform</p>
 							<button type="button" class="btn btn-info btn-md">
-								<a href="#">Learn More</a>
+								
 							</button>
 						</div>
 					</div>
@@ -197,7 +193,7 @@
 	<!-- Random
 	================================================== -->
 	<section class="parallax section"
-		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/3.jpg);">
+		style="background-image: url(https://i.picsum.photos/id/173/1600/600.jpg?hmac=amuck7hXGi_oM80tSLWwNn2GMrf04E_Irz15Mn1C_fQ);"> <!--jabal-->
 		<div class="wrapsection">
 			<div class="parallax-overlay"></div>
 			<div class="container">
@@ -217,7 +213,8 @@
 	</section>
 	<!-- Gallery
 	================================================== -->
-	<section id="gallery" class="parallax section" style="background-image: url(http://themepush.com/demo/runcharity/assets/img/2.jpg);">
+	<section id="gallery" class="parallax section"> <!--style="background-image: url(http://themepush.com/demo/runcharity/assets/img/2.jpg);"-->
+	
 <div class="wrapsection">
 	<div class="parallax-overlay" style="background-color:#00c1c1;opacity:0.9;"></div>
 	<div class="container">
@@ -246,9 +243,9 @@
 		</c:forEach>
 	</section>
 	<!-- Text Carousel
-	================================================== -->
+	================================================== thankfull -->
 	<section id="slider" class="parallax section"
-		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/4.jpg);">
+		style="background-image: url(https://images.unsplash.com/photo-1510194638421-92f54ce46444?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=806&q=80);">
 		<div class="wrapsection">
 			<div class="container">
 				<div class="row">
@@ -465,9 +462,9 @@
 		</div>
 	</section>
 	<!-- Random
-	================================================== -->
+	================================================== flowers-->
 	<section class="whitecolor parallax section"
-		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/5.jpg);">
+		style="background-image: url(https://images.unsplash.com/photo-1576076783416-5f855064d42b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=742&q=80);">
 		<div class="wrapsection">
 			<div class="container">
 				<div class="row">
