@@ -19,8 +19,8 @@ public class MimeMessage2 {
 	public void send(String toEmail) {
 		// Recipient's email ID needs to be mentioned.
 	
-        String from = "hanikiwan9@gmail.com";
-        String pass = "hanekewan123";
+        String from = "BlessingTeam.ps@gmail.com";
+        String pass = "blessing@123";
        
         // Assuming you are sending email from through mails SMTP
         String to = "smtp.gmail.com";
@@ -59,7 +59,7 @@ public class MimeMessage2 {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress());
 
             // Set Subject: header field
-            message.setSubject("Dopamine Team !");
+            message.setSubject(" Team !");
 
             // Now set the actual message
             message.setText(" Sending Greetings From Dopamine Team ! ");

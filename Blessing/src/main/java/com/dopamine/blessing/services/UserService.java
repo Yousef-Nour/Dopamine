@@ -44,17 +44,17 @@ public class UserService {
     }
      
      // 2 
-    public void saveUserWithAdminRole(User user) {
+    public User saveUserWithAdminRole(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(roleRepository.findByName("ROLE_ADMIN"));
-        userRepository.save(user);
+        return userRepository.save(user);
     }    
     
     //3
-    public void saveUserWithOrganizationRole(User user) {
+    public User saveUserWithOrganizationRole(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(roleRepository.findByName("ROLE_ORGANIZATION"));
-        userRepository.save(user);
+        return userRepository.save(user);
     }   
     
     // 4
@@ -106,6 +106,9 @@ public class UserService {
 		donate.setOrganization(organization);
 		return donationsRepository.save(donate);		
 	}
+
+
+
 	    
 }
 

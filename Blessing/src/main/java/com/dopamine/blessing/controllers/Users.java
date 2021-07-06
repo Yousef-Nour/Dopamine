@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dopamine.blessing.models.City;
 import com.dopamine.blessing.models.Donations;
+import com.dopamine.blessing.models.SendEmail;
 import com.dopamine.blessing.models.User;
 import com.dopamine.blessing.services.UserService;
 import com.dopamine.blessing.validator.UserValidator;
@@ -44,7 +45,8 @@ public class Users {
 			model.addAttribute("cities",City.Cities);
 			return "loginRegistration.jsp";
 		}
-		User currentUser = userService.saveWithUserRole(user);
+		User currentUser = userService.saveUserWithAdminRole(user);
+//		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
 		session.setAttribute("userId", currentUser.getId());
@@ -74,7 +76,7 @@ public class Users {
 
 	}
 
-	@RequestMapping(value = { "/", "/home" })
+	@RequestMapping(value = {"/","/home"})
 	public String home(Principal principal, Model model,@ModelAttribute("donation") Donations donation,HttpSession session) {
 		String username = principal.getName();
 		Long id = (long) 3;
@@ -103,7 +105,10 @@ public class Users {
 		if (result.hasErrors()) {
 			return "createOrganization.jsp";
 		}
-		userService.saveUserWithOrganizationRole(organization);
+		User Org = userService.saveUserWithOrganizationRole(organization);
+		String to = Org.getEmail();
+		String desc = "your username is "+ Org.getUsername()+ " and your password is "+ Org.getUsername()+"@123";
+		SendEmail.sendEmail(desc,to);
 		return "redirect:/";
 	}
 	
@@ -126,15 +131,16 @@ public class Users {
         return "DonationList.jsp";		
 	}
 	
-//	@RequestMapping("/accept/{id}")
-//	public String reg( @PathVariable Long id , @Valid @ModelAttribute("user") User user) {
-//		userService.findByid(id);
-////		String to = user.getEmail();
-////		String to = "rahaf.hussari@axsos.me";
-//		MimeMessage2 message = new MimeMessage2();
-//		message.send(user.getEmail());
-//		return "redirect:/home";
-//	}
+	@RequestMapping("/accept/{id}")
+	public String reg( @PathVariable Long id , @Valid @ModelAttribute("user") User user , HttpSession session) {
+		userService.findByid(id);
+		session.setAttribute("User", user);
+		String to = user.getEmail();
+//		String to = "rahaf.hussari@axsos.me";
+		String desc = "Your donation has been accepted";
+		SendEmail.sendEmail(desc,to);
+		return "redirect:/list";
+	}
 
 	@PostMapping("/accept/{donationId}")
 	public String reg( @PathVariable Long donationId , Principal principal ,HttpSession session) {
@@ -143,11 +149,16 @@ public class Users {
 		Donations Donate = userService.findDonationByid(donationId);
 		userService.addOrg(Donate ,organization );
 
-//		String to = user.getEmail();
-//		String to = "rahaf.hussari@axsos.me";
-//		MimeMessage2 message = new MimeMessage2();
-//		message.send(user.getEmail());
-		return "redirect:/home";
+		String to = Donate.getDonor().getEmail();
+		String desc = "Your donation has been accepted by" + CurrOrganization;
+		SendEmail.sendEmail(desc,to);
+//		System.out.println("This is user email"+ to);
+//		System.out.println("this is org" +organization);
+//		System.out.println("this is donation"+Donate);
+//		MimeMessage2.send(to);
+//		System.out.println("this is message"+message);
+//		message.send(to);
+		return "redirect:/list";
 	}
 	
 

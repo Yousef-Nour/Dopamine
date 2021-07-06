@@ -29,10 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
             authorizeRequests()
 //            	.antMatchers("/").permitAll()
-                .antMatchers("/static/**", "/registration", "/list").permitAll()
+                .antMatchers("/static/**", "/registration").permitAll()
                 .antMatchers("/css/**","/js/**").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")    // NEW
-                .antMatchers("/donations/**").access("hasRole('ORGANIZATION')") //NEW
+                .antMatchers("/list").access("hasRole('ORGANIZATION')") //NEW
+                .antMatchers("/home").access("hasRole('DONOR')") //NEW
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
