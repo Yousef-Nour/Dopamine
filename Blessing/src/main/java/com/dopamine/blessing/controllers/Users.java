@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dopamine.blessing.mail.MimeMessage2;
 import com.dopamine.blessing.models.City;
+import com.dopamine.blessing.models.Donations;
 import com.dopamine.blessing.models.User;
 import com.dopamine.blessing.services.UserService;
 import com.dopamine.blessing.validator.UserValidator;
@@ -73,9 +76,11 @@ public class Users {
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Principal principal, Model model) {
 		String username = principal.getName();
+		System.out.println(username + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+		
 		model.addAttribute("currentUser", userService.findByUsername(username));
 		model.addAttribute("allOrg",userService.findAllOrg());
-		System.out.println(userService.findAllOrg().get(0));
+		//System.out.println(userService.findAllOrg().get(0));
 		return "homePage.jsp";
 	}
 	//logOUT
@@ -104,5 +109,41 @@ public class Users {
 		userService.saveUserWithOrganizationRole(organization);
 		return "homePage.jsp";
 	}
+	
+	
+	@RequestMapping("/list")
+	public String list(Model model, Principal principal, @ModelAttribute("Donate") Donations donate){
+		model.addAttribute("Donatins", userService.findAllDonations());
+		String username= principal.getName();
+		System.out.println(username);
+		model.addAttribute("user", userService.findByUsername(username));
+        return "DonationList.jsp";		
+	}
+	
+//	@RequestMapping("/accept/{id}")
+//	public String reg( @PathVariable Long id , @Valid @ModelAttribute("user") User user) {
+//		userService.findByid(id);
+////		String to = user.getEmail();
+////		String to = "rahaf.hussari@axsos.me";
+//		MimeMessage2 message = new MimeMessage2();
+//		message.send(user.getEmail());
+//		return "redirect:/home";
+//	}
+//	
+	@RequestMapping("/accept/{id}")
+	public String reg( @PathVariable Long id , @Valid @ModelAttribute("user") User user, Principal principal, @ModelAttribute("Donate") Donations donate) {
+		userService.findByid(id);
+		String username= principal.getName();
+		User organization = userService.findByUsername(username);
+		
+		
+//		String to = user.getEmail();
+//		String to = "rahaf.hussari@axsos.me";
+		MimeMessage2 message = new MimeMessage2();
+		message.send(user.getEmail());
+		return "redirect:/home";
+	}
+	
+
 
 }
