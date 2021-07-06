@@ -28,7 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
             authorizeRequests()
-                .antMatchers("/static/**", "/registration").permitAll()
+//            	.antMatchers("/").permitAll()
+                .antMatchers("/static/**", "/registration", "/list").permitAll()
                 .antMatchers("/css/**","/js/**").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")    // NEW
                 .antMatchers("/donations/**").access("hasRole('ORGANIZATION')") //NEW
@@ -36,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .formLogin()
                 .loginPage("/login")
+//                .defaultSuccessUrl("/home")
                 .permitAll()
                 .and()
             .logout()

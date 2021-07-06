@@ -14,8 +14,7 @@
 			
 			<div>
 				<form:label path="username">Name</form:label>
-				<form:errors path="username"><
-				/form:errors>
+				<form:errors path="username"></form:errors>
 				<form:input path="username" />
 			</div>
 			<div>
