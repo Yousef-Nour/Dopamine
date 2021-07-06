@@ -25,17 +25,17 @@ public class Donations {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String description;
-	@DateTimeFormat(pattern ="yyyy-mm-dd")
-	@Future
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date donationDate;
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="donors")
-    private List<User> donors;
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="organizations")
-    private List<User> organizations;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="donor_id")
+    private User donor;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="organization_id")
+    private User organization;
 	@Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="donationType_id")
     private DonationType donationType;
@@ -59,6 +59,7 @@ public class Donations {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 
 	public Date getDonationDate() {
 		return donationDate;
@@ -68,20 +69,20 @@ public class Donations {
 		this.donationDate = donationDate;
 	}
 
-	public List<User> getDonors() {
-		return donors;
+	public User getDonor() {
+		return donor;
 	}
 
-	public void setDonors(List<User> donors) {
-		this.donors = donors;
+	public void setDonor(User donor) {
+		this.donor = donor;
 	}
 
-	public List<User> getOrganizations() {
-		return organizations;
+	public User getOrganization() {
+		return organization;
 	}
 
-	public void setOrganizations(List<User> organizations) {
-		this.organizations = organizations;
+	public void setOrganization(User organization) {
+		this.organization = organization;
 	}
 
 	public Date getCreatedAt() {

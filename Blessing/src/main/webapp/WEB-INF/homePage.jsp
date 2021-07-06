@@ -60,8 +60,8 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#gallery">Organizations</a></li>
 					<li><a href="#slider">Donate</a></li>
-
 					<li><a href="#contactarea">Contact</a></li>
+					<li><a href="/logout">LogOut</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -247,10 +247,40 @@
 	<section id="slider" class="parallax section"
 		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/4.jpg);">
 		<div class="wrapsection">
+			<div class="parallax-overlay"
+				style="background-color: #1cbb9b; opacity: 0.95;"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div id="Carousel" class="carousel slide">
+						<h2>Donate</h2>
+						<form:form action="/donate" method="POST" modelAttribute="donation">
+						<form:input path="donor" type="hidden" value="${currentUserId}"/>
+						<div class="wow fadeIn animated" data-wow-delay="0.3s"
+						data-wow-duration="1.5" style="margin-top: 15px;">
+						<form:label path="donationType">Donation Type:<span class="required">*</span></form:label>
+						<form:select path="donationType">
+						<c:forEach items="${donationTypes}" var="type">
+						<form:option value="${type.id}">${type.name}</form:option>
+						</c:forEach>
+						</form:select>
+						</div>
+						<div class="wow fadeIn animated" data-wow-delay="0.3s"
+						data-wow-duration="1.5" style="margin-top: 15px;">
+						<form:label path="donationDate">Donation Date:<span class="required">*</span></form:label>
+						<form:input type="date" path="donationDate"/>
+						</div>
+						<div class="wow fadeIn animated" data-wow-delay="0.3s"
+						data-wow-duration="1.5" style="margin-top: 15px;">
+						<form:label path="description">Details: <span class="required">*</span></form:label>
+						<form:textarea path="description"></form:textarea>
+						</div>
+						<div class="wow fadeIn animated" data-wow-delay="0.3"
+						data-wow-duration="1.5s">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						<input type="submit" value="confirm"/>
+						</div>
+						</form:form>
+					<!--  	<div id="Carousel" class="carousel slide">
 							<ol class="carousel-indicators">
 								<li data-target="#Carousel" data-slide-to="0" class="active"></li>
 								<li data-target="#Carousel" data-slide-to="1"></li>
@@ -279,14 +309,14 @@
 									</blockquote>
 								</div>
 							</div>
-							<a class="left carousel-control" href="#Carousel"
+							  <a class="left carousel-control" href="#Carousel"
 								data-slide="prev"> <span
 								class="glyphicon glyphicon-chevron-left"></span>
 							</a> <a class="right carousel-control" href="#Carousel"
 								data-slide="next"> <span
 								class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</div>
+							</a>  
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -294,7 +324,7 @@
 	</section>
 	<!-- FAQ
 	================================================== -->
-	<section id="faq" class="section">
+<!--	<section id="faq" class="section">
 		<div class="wrapsection">
 			<div class="container">
 				<div class="row">
@@ -460,7 +490,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Random
 	================================================== -->
 	<section class="whitecolor parallax section"
@@ -484,7 +514,7 @@
 	</section>
 	<!-- Contact
 	================================================== -->
-	<section id="contactarea" class="parallax section"
+	<section class="contactarea" class="parallax section"
 		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/map.png);">
 		<div class="wrapsection">
 			<div class="parallax-overlay"
