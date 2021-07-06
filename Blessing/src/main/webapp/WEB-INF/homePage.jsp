@@ -61,11 +61,7 @@
 					<li><a href="#gallery">Organizations</a></li>
 					<li><a href="#slider">Donate</a></li>
 					<li><a href="#contactarea">Contact</a></li>
-<<<<<<< HEAD
 					<li><a href="/logout">LogOut</a></li>
-=======
-					<li><a href="/logout">Log Out</a></li>
->>>>>>> 604c7c79a3a88b520730804a13358df1f69b0cd3
 				</ul>
 			</nav>
 		</div>

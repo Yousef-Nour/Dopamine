@@ -9,7 +9,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Donations List</title>
-
+<!-- Bootstrap -->
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!-- Styles -->
 <link rel='stylesheet' href="/css/bootstrap.min.css">
 <link rel='stylesheet' href="/css/animate.min.css">
@@ -32,28 +34,51 @@
 					<div class="col-md-12 sol-sm-12">
 						<div class="maintitle">
 							<h3 class="section-title justtitle">Donations List </h3>
-							<p class="lead bottom0 wow bounceInUp">The orgnaization can select the suite donation according to the type and the date  .</p>
+							<p class="lead bottom0 wow bounceInUp">Please select the suitable donations from the table below.</p>
 						</div>	
 						<div>
-						<ul>
-						<c:forEach items="${Donatins}" var="don">
-					
-						<li><c:out value="${don.donationType.name}"></c:out></li>
-						<li><c:out value="${don.donationDate}"></c:out></li>
-						<li><c:out value="${don.description}"></c:out></li>
-	<li>	<form:form action="accept/${ don.id }" modelAttribute="Donate">
-		<form:hidden path="id" value="${ don.id }"/>
-			<form:hidden path="organizations" value="${ user.id }"/>
-			<button>Book</button>
-		</form:form></li>
-						</c:forEach>
-						</ul>
+						<table class="white table table-bordered">
+							<thead>
+								<tr>
+									<th>Donor</th>
+									<th>Location</th>
+									<th>Donation Type</th>
+									<th>Date</th>
+									<th>Description</th>
+									<th>Accept/Accepted By</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${Donatins}" var="don">
+									<tr>
+										<td><c:out value="${don.donor.username}"></c:out></td>
+										<td><c:out value="${don.donor.city}"></c:out></td>
+										<td><c:out value="${don.donationType.name}"></c:out></td>
+										<td><c:out value="${don.donationDate}"></c:out></td>
+										<td><c:out value="${don.description}"></c:out></td>
+										<td>
+											<c:choose> 
+												<c:when test="${don.organization.id == null}"> 
+													<form:form method = "POST" action="accept/${don.id}">
+			 											<input type="submit" value="Accept" class="btn btn-default btn-lg wow fadeInRight" role="button">
+													</form:form>
+												</c:when> 
+												<c:otherwise>
+													Accepted By <c:out value = "${don.organization.username}"/>
+												</c:otherwise>
+											</c:choose>
+										</td>
+								</c:forEach>
+									</tr>
+							</tbody>
+						</table>
+						<br>
+						<p>P.S.: an Email will be sent to the donor upon acceptance.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-			 <a href="accept/${ don.id }" class="btn btn-default btn-lg wow fadeInRight" role="button"> Book </a>
 	</section>
 </body>
 </html>

@@ -1,3 +1,11 @@
+.white{
+	color:white;
+	text-align:center;
+}
+
+table th{
+	text-align:center;
+}
 body {
 	color:#444;
 	font:normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;

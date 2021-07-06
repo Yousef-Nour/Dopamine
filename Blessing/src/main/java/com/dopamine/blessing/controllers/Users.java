@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dopamine.blessing.mail.MimeMessage2;
 import com.dopamine.blessing.models.City;
 import com.dopamine.blessing.models.Donations;
 import com.dopamine.blessing.models.User;
@@ -45,7 +44,6 @@ public class Users {
 			model.addAttribute("cities",City.Cities);
 			return "loginRegistration.jsp";
 		}
-//		userService.saveUserWithAdminRole(user);
 		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
@@ -80,7 +78,7 @@ public class Users {
 	public String home(Principal principal, Model model,@ModelAttribute("donation") Donations donation,HttpSession session) {
 		String username = principal.getName();
 		Long id = (long) 3;
-		model.addAttribute("currentUser", userService.findByUsername(username));
+		model.addAttribute("currentUserId", userService.findByUsername(username).getId());
 		model.addAttribute("allOrg",userService.findAllOrg(id));
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
 		return "homePage.jsp";
@@ -91,7 +89,6 @@ public class Users {
         session.invalidate();
         return "redirect:/registration"; 
     }
-	//create organaization from admin
 	@RequestMapping("/createOrgenization")
 	public String adminPage(@Valid @ModelAttribute("organization") User organization,Model model) {
 		model.addAttribute("cities", City.Cities);
@@ -106,8 +103,6 @@ public class Users {
 		if (result.hasErrors()) {
 			return "createOrganization.jsp";
 		}
-//		userService.saveUserWithAdminRole(user);
-//
 		userService.saveUserWithOrganizationRole(organization);
 		return "redirect:/";
 	}
@@ -119,7 +114,7 @@ public class Users {
 			return "homePage.jsp";
 		}
 		userService.createDonation(donation);
-		return "homePage.jsp";
+		return "redirect:/";
 	}
 	
 	
@@ -127,7 +122,6 @@ public class Users {
 	public String list(Model model, Principal principal, @ModelAttribute("Donate") Donations donate){
 		model.addAttribute("Donatins", userService.findAllDonations());
 		String username= principal.getName();
-		System.out.println(username);
 		model.addAttribute("user", userService.findByUsername(username));
         return "DonationList.jsp";		
 	}
@@ -141,18 +135,18 @@ public class Users {
 //		message.send(user.getEmail());
 //		return "redirect:/home";
 //	}
-//	
-	@RequestMapping("/accept/{id}")
-	public String reg( @PathVariable Long id , @Valid @ModelAttribute("user") User user, Principal principal, @ModelAttribute("Donate") Donations donate) {
-		userService.findByid(id);
-		String username= principal.getName();
-		User organization = userService.findByUsername(username);
-		
-		
+
+	@PostMapping("/accept/{donationId}")
+	public String reg( @PathVariable Long donationId , Principal principal ,HttpSession session) {
+		String CurrOrganization= principal.getName();
+		User organization = userService.findByUsername(CurrOrganization);
+		Donations Donate = userService.findDonationByid(donationId);
+		userService.addOrg(Donate ,organization );
+
 //		String to = user.getEmail();
 //		String to = "rahaf.hussari@axsos.me";
-		MimeMessage2 message = new MimeMessage2();
-		message.send(user.getEmail());
+//		MimeMessage2 message = new MimeMessage2();
+//		message.send(user.getEmail());
 		return "redirect:/home";
 	}
 	

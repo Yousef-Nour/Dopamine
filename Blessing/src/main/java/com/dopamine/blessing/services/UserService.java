@@ -30,6 +30,8 @@ public class UserService {
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.donTypeRepository = donTypeRepository;
+        this.donationsRepository = donationsRepository;
+
     }
     
     
@@ -60,12 +62,7 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
     
-//    public List<User> findAllOrg(){
-//    	String id = "3";
-//    	Long t = Long.parseLong(id);
-//    	Role role = roleRepository.findById(t).orElse(null);
-//    	return userRepository.findByRolesContaining(role);
-//    }
+
     
     public List<User> findAllOrg(Long id){
     	return userRepository.findByRolesId(id);
@@ -84,16 +81,31 @@ public class UserService {
             return null;
         }
     }
+    
+    
     public List<Donations> findAllDonations(){
-//    	String id = "3";
-//    	Long t = Long.parseLong(id);
-//    	Role role = roleRepository.findById(t).orElse(null);
     	return donationsRepository.findAll();
     }
     
-	public Donations createDonation(@Valid Donations donation) {
+    
+	public Donations createDonation(Donations donation) {
 		return donationsRepository.save(donation);
 	}
 
+	 public Donations findDonationByid(Long id) {
+	        Optional<Donations> optionalldonations = donationsRepository.findById(id);
+	        if(optionalldonations.isPresent()) {
+	            return optionalldonations.get();
+	        } else {
+	            return null;
+	        }
+	    }
+
+
+	public Donations addOrg(@Valid Donations donate, User organization) {
+		donate.setOrganization(organization);
+		return donationsRepository.save(donate);		
+	}
+	    
 }
 
