@@ -381,3 +381,8 @@ background text
   margin: 10px;
   margin-left: 30px;
 }
+
+.orgform .form-control,.orgform .form-select{
+	width: 50%;
+	margin:0px auto;
+}

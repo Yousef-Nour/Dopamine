@@ -33,12 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**","/js/**").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")    // NEW
                 .antMatchers("/list").access("hasRole('ORGANIZATION')") //NEW
-                .antMatchers("/home").access("hasRole('DONOR')") //NEW
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
-//                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/home")
                 .permitAll()
                 .and()
             .logout()
