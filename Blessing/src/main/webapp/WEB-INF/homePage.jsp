@@ -39,7 +39,7 @@
 	<!-- Start Header
 	================================================== -->
 	<header id="header" class="navbar navbar-inverse navbar-fixed-top"
-		role="banner">
+		role="banner"  >
 		<div class="container">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse"
@@ -60,7 +60,7 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#gallery">Organizations</a></li>
 					<li><a href="#slider">Donate</a></li>
-					<li><a href="#contactarea">Contact</a></li>
+					<li><a href="#credits">Contact</a></li>
 					<li><a href="/logout">LogOut</a></li>
 				</ul>
 			</nav>
@@ -82,14 +82,13 @@
 							data-wow-delay="0.1s">
 							<span class="lighter">Hope is every where</span>
 						</h1>
-						<p class="lead wow zoomIn" data-wow-duration="2s"
+						<p  id="para"class="lead wow zoomIn" data-wow-duration="2s"
 							data-wow-delay="0.5s">When we give cheerfully and accept
 							gratefully, everyone is blessed.</p>
 						<p>
 							<a href="#gallery" class="btn btn-default btn-lg wow fadeInLeft"
-								role="button"> View Gallery </a> &nbsp; <a href="#slider"
-								class="btn btn-default btn-lg wow fadeInRight" role="button">Find
-								a Cause</a>
+								role="button"> View Organizations </a> &nbsp; <a href="#slider"
+								class="btn btn-default btn-lg wow fadeInRight" role="button">Donate</a>
 						</p>
 					</div>
 				</div>
@@ -103,7 +102,7 @@
 	>
 		<div class="wrapsection">
 			<div class="parallax-overlay"
-				style="background-color: #01b0d1; opacity: 0.9;"></div>
+				style="background-color: #675139; opacity: 0.9;"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -134,7 +133,7 @@ As for the charities they will be able to view list of donations in their city a
 								<p><i>Yap, it is all about humanity!</i></p>
 								<p class="text-center">
 									<button type="button" class="btn btn-info btn-md">
-										<a href="https://www.youtube.com/watch?v=pb7_YJp9bVA" target="_blank">Learn More</a>
+										<a href="https://www.youtube.com/watch?v=Vb_oVpmv0Qs" target="_blank">Learn More</a>
 									</button>
 									
 								</p>
@@ -146,8 +145,8 @@ As for the charities they will be able to view list of donations in their city a
 							data-wow-delay="0.1s">
 							<span class="glyphicon glyphicon-stats"></span>
 							<h3> 100 Participants</h3>
-							<p>40% of societies in Palestine are charitable
-							</p>
+							<p>40% of our societies are charitable</p>
+			
 							<button type="button" class="btn btn-info btn-md">
 								
 							</button>
@@ -200,11 +199,9 @@ As for the charities they will be able to view list of donations in their city a
 				<div class="row">
 					<div class="col-md-12 sol-sm-12">
 						<div class="maintitle">
-							<h3 class="section-title justtitle">Participation is
+							<h3 class="section-title justtitle">Blessing is
 								everything</h3>
-							<p class="lead bottom0 wow bounceInUp">Fusce fermentum lectus
-								id turpis suscipit, ut egestas magna volutpat. Donec a purus
-								tellus. Nunc ut dolor eu est gravida auctor quis vitae.</p>
+							<p class="lead bottom0 wow bounceInUp">Giving is not just about making a donation, it is about making a difference</p>
 						</div>
 					</div>
 				</div>
@@ -216,10 +213,10 @@ As for the charities they will be able to view list of donations in their city a
 	<section id="gallery" class="parallax section"> <!--style="background-image: url(http://themepush.com/demo/runcharity/assets/img/2.jpg);"-->
 	
 <div class="wrapsection">
-	<div class="parallax-overlay" style="background-color:#00c1c1;opacity:0.9;"></div>
+	<div class="parallax-overlay" style="background-color:#675139;opacity:0.9;"></div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 sol-sm-12">
+			<div class="col-md-15 sol-sm-15 ">
 				<div class="maintitle">
 					<h3 class="section-title">Our Organizations</h3>
 					<p class="lead wow flipInX">
@@ -231,11 +228,11 @@ As for the charities they will be able to view list of donations in their city a
 			</div>
 			<c:forEach items="${allOrg}" var="org">
 			<div class="col-md-4">
-				<a href="${org.description}" title="This is the description">
+				
 					<img src="${org.img}" alt="" class="image-responsive">
 					<div class="description">
 						<span class="caption"><c:out value="${org.username}"></c:out> <b><c:out value="${org.description}"></c:out></b></span> 
-						<span class="camera"><i class="fa fa-camera"></i></span>
+						<span class="camera"></span>
 						<div class="clearfix"></div>
 					</div>			
 				</a>
@@ -245,10 +242,10 @@ As for the charities they will be able to view list of donations in their city a
 	<!-- Text Carousel
 	================================================== thankfull -->
 	<section id="slider" class="parallax section"
-		style="background-image: url(https://images.unsplash.com/photo-1510194638421-92f54ce46444?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=806&q=80);">
+		style="background-image: url(https://images.unsplash.com/photo-1527380992061-b126c88cbb41?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI4fHxoYW5kc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
 		<div class="wrapsection">
 			<div class="parallax-overlay"
-				style="background-color: #1cbb9b; opacity: 0.95;"></div>
+				></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -492,9 +489,10 @@ As for the charities they will be able to view list of donations in their city a
 		</div>
 	</section> -->
 	<!-- Random
-	================================================== flowers-->
+	================================================== flowers
+	
 	<section class="whitecolor parallax section"
-		style="background-image: url(https://images.unsplash.com/photo-1576076783416-5f855064d42b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=742&q=80);">
+		style="background-color: #675139; opacity: 0.9;background-image: url();">
 		<div class="wrapsection">
 			<div class="container">
 				<div class="row">
@@ -503,17 +501,19 @@ As for the charities they will be able to view list of donations in their city a
 							<h3 class="section-title justtitle">
 								Charity <span class="wow flipInX">&amp; love</span> are the same
 							</h3>
-							<p class="lead bottom0">Fusce fermentum lectus id turpis
-								suscipit, ut egestas magna volutpat. Donec a purus tellus. Nunc
-								ut dolor eu est gravida auctor quis vitae.</p>
+							<p class="lead bottom0">Our contact information<br><br>email: blessingteam.ps@gmail.com <br><br>Mobile:0599090909 <br><br> Our Team:<br> Tasneem Arafat <br> Yousef Nour <br> Hani Kiwan<br><br></p>
+							<p>We are Happy that you are a member of Our Family</p>
+							<p><i class="fa fa-heart"></i> </p>
+							
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Contact
-	================================================== -->
+	================================================== 
 	<section class="contactarea" class="parallax section"
 		style="background-image: url(http://themepush.com/demo/runcharity/assets/img/map.png);">
 		<div class="wrapsection">
@@ -575,15 +575,32 @@ As for the charities they will be able to view list of donations in their city a
 	</section>
 	<!-- Credits 
 =============================================== -->
-	<section id="credits" class="text-center">
-		<span class="social wow zoomIn"> <a href="#"><i
-				class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-skype"></i></a> <a href="#"><i
-				class="fa fa-linkedin"></i></a> <a href="#"><i
-				class="fa fa-pinterest"></i></a> <a href="#"><i
-				class="fa fa-google-plus"></i></a>
-		</span><br /> Copyright &copy; <a href="#">Your Agency</a> <br />Template By
-		<i class="fa fa-heart"></i> WowThemes.Net
+	<section id="credits" class="text-center" style="background-color: #675139; opacity: 0.9;color: white;">
+	<section class="whitecolor parallax section"
+		style="background-color: #675139; opacity: 0.9;background-image: url();">
+		<div class="wrapsection">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 sol-sm-12">
+						<div class="maintitle">
+							<h3 class="section-title justtitle">
+								Charity <span class="wow flipInX">&amp; love</span> are the same
+							</h3>
+							<p class="lead bottom0">Our contact information<br><br>email: blessingteam.ps@gmail.com <br><br>Mobile:0599090909 <br><br> Our Team:<br> Tasneem Arafat <br> Yousef Nour <br> Hani Kiwan<br><br></p>
+							<p>We are Happy that you are a member of Our Family</p>
+							<p><i class="fa fa-heart"></i> </p>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<span class="social wow zoomIn"> <a href="https://www.facebook.com/Blessing-103655815324685" target="_blank"><i
+				class="fa fa-facebook"></i></a> 
+		</span><br /> Copyright &copy; <a href="https://academy.axsos.ps/"  target="_blank">AXSOS Academy</a> <br />
+		
 	</section>
 	<!-- Bootstrap core JavaScript
 	================================================== -->

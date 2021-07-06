@@ -56,6 +56,15 @@ h6 {
 p.lead {
 	font-size:24px;
 	font-weight:200;
+	
+	
+}
+#para{
+	font-size:24px;
+	font-weight:200;
+	background-color: #52111145;
+	width:280px;
+	
 }
 p {
 	margin-bottom:20px;
@@ -168,7 +177,7 @@ img {
 .btn-info,.label-info,.alert-info {
 	background-color:#FFF;
 	border-color:#FFF;
-	color:#01B0D1;
+	color:#01B0D1; 
 }
 .btn-info:hover,.btn-info:focus {
 	background-color:#FFF;
@@ -444,12 +453,16 @@ label {
 }
 #hero h1 {
 	font-size:50px;
+	background-color: #52111145;
+	width:280px;
 }
 #hero p.lead {
 	font-size:1.4em;
 }
 #hero .btn {
 	font-size:12px;
+	background-color: #52111145;
+	
 }
 /*	Features	==================================================*/
 #features {
@@ -2652,6 +2665,7 @@ img.mfp-img {
 	}
 	#hero h1 {
 					font-size:38px;
+					
 	}
 	#hero p.lead {
 					font-size:1.5em;
