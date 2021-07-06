@@ -77,19 +77,18 @@ public class Users {
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Principal principal, Model model,@ModelAttribute("donation") Donations donation,HttpSession session) {
 		String username = principal.getName();
-		System.out.println(username);
-		model.addAttribute("currentUserId", userService.findByUsername(username).getId());
-//		model.addAttribute("allOrg",userService.findAllOrg());
-//		System.out.println(userService.findAllOrg().get(0));
+		Long id = (long) 3;
+		model.addAttribute("currentUser", userService.findByUsername(username));
+		model.addAttribute("allOrg",userService.findAllOrg(id));
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
-//		System.out.println(userService.findByUsername(username).getId());
+//		System.out.println(userService.findAllOrg().get(0));
 		return "homePage.jsp";
 	}
 	//logOUT
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/"; 
+        return "redirect:/registration"; 
     }
 	//create organaization from admin
 	@RequestMapping("/createOrgenization")
@@ -109,7 +108,7 @@ public class Users {
 //		userService.saveUserWithAdminRole(user);
 //
 		userService.saveUserWithOrganizationRole(organization);
-		return "homePage.jsp";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/donate")

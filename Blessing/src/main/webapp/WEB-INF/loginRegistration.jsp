@@ -57,7 +57,7 @@
         </div>
 
           <form:form  method="POST" action="/registration" modelAttribute="user">
-        <div class="cont_form_sign_up">
+        	<div class="cont_form_sign_up">
           <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
           <h2>SIGN UP</h2>
           <input name="username" type="text" placeholder="Name" />
