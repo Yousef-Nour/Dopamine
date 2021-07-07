@@ -27,8 +27,7 @@ includs two forms, one for registration  if  you are a new donor, and a login fo
 
 **Home page** : 
 
-this is the main page, it contains 4 sections:
-you can access the other pages the are in the navbaa section, and logout link .![homepage](https://user-images.githubusercontent.com/81506791/124702038-57ba1280-def8-11eb-830c-0f9faf4206c4.JPG)<br/><br/>
+It is the main page for our website, it contains 4 sections, you can navigate throught them other via the navbaar.![homepage](https://user-images.githubusercontent.com/81506791/124702038-57ba1280-def8-11eb-830c-0f9faf4206c4.JPG)<br/><br/>
 
 
 First Section (**About us**):
