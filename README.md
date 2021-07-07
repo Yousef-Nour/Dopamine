@@ -60,8 +60,8 @@ Only organizations can access this page to accept donations according to the typ
 
 
 **Our Team**
-Hani Kiwan
-Tasneem Arafat
-Yousef Nour
+Hani Kiwan<br/>
+Tasneem Arafat<br/>
+Yousef Nour<br/>
 
 
