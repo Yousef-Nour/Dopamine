@@ -21,7 +21,7 @@ Java Stack Project
 
 # Main Featuers:
 
-**the LoginAndRegistration Page** : 
+**Login and Registration Page** : 
 includs two forms, one for registration  if  you are a new donor, and a login form for previous donor. 
 ![login](https://user-images.githubusercontent.com/81506791/124702040-5852a900-def8-11eb-9bab-b8f24590c249.JPG)<br/><br/>
 
@@ -31,21 +31,21 @@ this is the main page, it contains 4 sections:
 you can access the other pages the are in the navbaa section, and logout link .![homepage](https://user-images.githubusercontent.com/81506791/124702038-57ba1280-def8-11eb-830c-0f9faf4206c4.JPG)<br/><br/>
 
 
-First Section: **About us**
+First Section (**About us**):
 It has an abstract about our website and team. Also it has some statistics about the general situation of the charities in Palestine and statistics about 
 the families that were supported through our website.
 ![about](https://user-images.githubusercontent.com/81506791/124702043-58eb3f80-def8-11eb-851c-3b8e21a619c6.JPG)<br/><br/>
 
 
-Second Section: **List of Organizations** 
+Second Section (**List of Organizations**):
 This page displays a list of all the participated organizations that can accept donations on our platform.<br/>
 ![orgs](https://user-images.githubusercontent.com/81506791/124703406-ec257480-defa-11eb-9257-c10dd540a697.JPG)<br/><br/>
 
-Third Section: **Donation form** 
+Third Section (**Donation form**):
 The form that the donors can create donations from.
 ![Donate](https://user-images.githubusercontent.com/81506791/124702035-57ba1280-def8-11eb-86c8-c9a4afbd8622.JPG)<br/><br/>
 
-Fourth Section: **Contact us** 
+Fourth Section (**Contact us**):
 This section has our contact info. 
 ![contact](https://user-images.githubusercontent.com/81506791/124702033-5688e580-def8-11eb-9431-c950fa881040.JPG)<br/><br/>
  
