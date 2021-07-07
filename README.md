@@ -21,43 +21,47 @@ Java Stack Project
 
 # Main Featuers:
 
-**the LoginAndRegistration Page** : 
+**Login and Registration Page** : 
 includs two forms, one for registration  if  you are a new donor, and a login form for previous donor. 
+![login](https://user-images.githubusercontent.com/81506791/124702040-5852a900-def8-11eb-9bab-b8f24590c249.JPG)<br/><br/>
 
 **Home page** : 
 
-this is the main page, it contains 4 sections:
-you can access the other pages the are in the navbaa section, and logout link .![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+It is the main page for our website, it contains 4 sections, you can navigate throught them other via the navbaar.![homepage](https://user-images.githubusercontent.com/81506791/124702038-57ba1280-def8-11eb-830c-0f9faf4206c4.JPG)<br/><br/>
 
 
-First Section: **About us**
+First Section (**About us**):
 It has an abstract about our website and team. Also it has some statistics about the general situation of the charities in Palestine and statistics about 
 the families that were supported through our website.
+![about](https://user-images.githubusercontent.com/81506791/124702043-58eb3f80-def8-11eb-851c-3b8e21a619c6.JPG)<br/><br/>
 
 
-Second Section: **List of Organizations** 
-This page displays a list of all the participated organizations that can accept donations on our platform. 
-![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+Second Section (**List of Organizations**):
+This page displays a list of all the participated organizations that can accept donations on our platform.<br/>
+![orgs](https://user-images.githubusercontent.com/81506791/124703406-ec257480-defa-11eb-9257-c10dd540a697.JPG)<br/><br/>
 
-Third Section: **Donation form** 
+Third Section (**Donation form**):
 The form that the donors can create donations from.
-![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+![Donate](https://user-images.githubusercontent.com/81506791/124702035-57ba1280-def8-11eb-86c8-c9a4afbd8622.JPG)<br/><br/>
 
-Fourth Section: **Contact us** 
+Fourth Section (**Contact us**):
 This section has our contact info. 
-![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+![contact](https://user-images.githubusercontent.com/81506791/124702033-5688e580-def8-11eb-9431-c950fa881040.JPG)<br/><br/>
  
 **Admin page** : 
 This page can only be accessed by the admin ,and it includes a form that allows the admin to create accounts for the organizations. 
-![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+![admin](https://user-images.githubusercontent.com/81506791/124702044-58eb3f80-def8-11eb-92bf-fdb65d2f1ebf.JPG)<br/><br/>
 
 **Donations list** : 
 This page will show all the the donation that were created by donors. 
 Only organizations can access this page to accept donations according to the type and date.
-![logo](https://user-images.githubusercontent.com/81506791/120929246-fb918200-c6f0-11eb-9e30-c83965b29682.png)<br/><br/>
+![donlist](https://user-images.githubusercontent.com/81506791/124703386-e29c0c80-defa-11eb-9ada-7ede42a142d2.JPG)<br/><br/><br/><br/>
  
 
 
-
+**Our Team**
+Hani Kiwan<br/>
+Tasneem Arafat<br/>
+Yousef Nour<br/>
 
 
