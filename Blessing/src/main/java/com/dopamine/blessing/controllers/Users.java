@@ -1,6 +1,7 @@
 package com.dopamine.blessing.controllers;
 
 import java.security.Principal;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -45,8 +46,8 @@ public class Users {
 			model.addAttribute("cities",City.Cities);
 			return "loginRegistration.jsp";
 		}
-		User currentUser = userService.saveUserWithAdminRole(user);
-//		User currentUser = userService.saveWithUserRole(user);
+//		User currentUser = userService.saveUserWithAdminRole(user);
+		User currentUser = userService.saveWithUserRole(user);
 		model.addAttribute("currentUser",currentUser);
 		model.addAttribute("donationTypes",userService.findAllDonationTypes());
 		session.setAttribute("userId", currentUser.getId());
@@ -105,7 +106,6 @@ public class Users {
 	@PostMapping("/createOrgenization")
 	public String OrgRegistration(@Valid @ModelAttribute("organization") User organization, BindingResult result, Model model) {
 		// NEW
-		System.out.println("IAM HERE");
 		userValidator.validate(organization, result);
 		if (result.hasErrors()) {
 			return "createOrganization.jsp";

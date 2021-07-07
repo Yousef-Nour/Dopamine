@@ -229,7 +229,7 @@ As for the charities they will be able to view list of donations in their city a
 			<c:forEach items="${allOrg}" var="org">
 			<div class="col-md-4">
 				
-					<img src="${org.img}" alt="" class="image-responsive">
+					<img src="${org.img}" alt="" class="image-responsive" width="280px" height="220px">
 					<div class="description">
 						<span class="caption"><c:out value="${org.username}"></c:out> <b><c:out value="${org.description}"></c:out></b></span> 
 						<span class="camera"></span>

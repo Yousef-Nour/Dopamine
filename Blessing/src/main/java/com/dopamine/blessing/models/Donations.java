@@ -1,7 +1,9 @@
 package com.dopamine.blessing.models;
 
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 
@@ -61,8 +62,13 @@ public class Donations {
 	}
 	
 
-	public Date getDonationDate() {
-		return donationDate;
+	public String getDonationDate() {
+		if(donationDate != null) {
+		SimpleDateFormat day = new SimpleDateFormat("EEEE, dd MMM yyyy");  
+	    String stDate = day.format(donationDate);
+	    return stDate;
+		}
+		return null;
 	}
 
 	public void setDonationDate(Date donationDate) {
